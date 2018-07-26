@@ -6,7 +6,7 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Hello World!'
-        bash 'echo myCustomEnvVar = $myCustomEnvVar'
+        sh 'echo myCustomEnvVar = $myCustomEnvVar'
       }
     }
   }
