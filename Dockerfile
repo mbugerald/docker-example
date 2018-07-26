@@ -1,8 +1,5 @@
-FROM python:3.6
+FROM ubuntu
 
-RUN mkdir /mainweb
-COPY . /mainweb
-WORKDIR /mainweb
-RUN pip install -r requirements.txt
-EXPOSE 5000
-CMD ["python3","/mainweb/run.py"]
+RUN /bin/bash -c 'echo This would generally be apt-get or the other system conf'
+ENV myCustomEnvVar="This is a sample."\
+    otherEnvVar="This is also a sample"

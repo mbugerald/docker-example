@@ -1,9 +1,12 @@
 pipeline {
-  agent any
+  agent {
+    dockerfile true
+  }
   stages {
-    stage('Example') {
+    stage('Build') {
       steps {
-        echo 'Hello World! my first jenkins JEH'
+        echo 'Hello World!'
+        bash 'echo myCustomEnvVar = $myCustomEnvVar'
       }
     }
   }
