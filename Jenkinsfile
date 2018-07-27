@@ -1,12 +1,18 @@
-pipeline {
-    agent {
-        dockerfile true
+node {
+
+    def app
+    
+    stage('Clone repository') {
+        checkout scm
     }
-    stages {
-        stage('Example') {
-            steps {
-                echo "Hello World! My first Jenkins"
-            }
+    
+    stage('Build image') {
+        app = docker.build("library/fedora")
+    }
+    
+    stage('Test image') {
+        app.inside {
+            sh 'echo "Test passed"'
         }
     }
 }
