@@ -7,7 +7,7 @@ node {
     }
     
     stage('Build image') {
-        app = docker.build("library/fedora")
+        app = docker.build("fedora")
     }
     
     stage('Test image') {
