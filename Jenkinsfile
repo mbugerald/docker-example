@@ -1,18 +1,7 @@
 node {
-
-    def app
-    
-    stage('Clone repository') {
-        checkout scm
-    }
-    
-    stage('Build image') {
-        app = docker.build("fedora")
-    }
-    
-    stage('Test image') {
-        app.inside {
-            sh 'echo "Test passed"'
-        }
+    stage('Build') {
+      docker.image('maven:3.3.3').inside {
+        sh 'mvn --version'
+      }
     }
 }
