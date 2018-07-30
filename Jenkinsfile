@@ -1,7 +1,7 @@
 node {
     stage('Build') {
-      docker.image('maven:3.3.3').inside {
-        sh 'mvn --version'
+      docker.image('python:3.6.5').inside {
+        sh 'pip install flask'
       }
     }
 }
